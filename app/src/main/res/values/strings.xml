@@ -26,4 +26,16 @@
     <string name="tvName">Name</string>
     <string name="txtPrice">Enter Price</string>
     <string name="txtDetailDesc">Details</string>
+    <string name="userName">User Name</string>
+    <string name="Password">Password</string>
+    <string name="WelcomeTxt">Welcome</string>
+    <string name="LoginBtnText">Login</string>
+    <string name="SignupBtnText">Sign up</string>
+    <string name="FirstName">First Name</string>
+    <string name="LastName">Last Name</string>
+    <string name="Address">Address</string>
+    <string name="CellPhone">Cell Phone</string>
+    <string name="Email">Email</string>
+    <string name="Apply">Apply</string>
+    <string name="Cancel">Cancel</string>
 </resources>
