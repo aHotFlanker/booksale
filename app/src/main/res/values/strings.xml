@@ -1,3 +1,29 @@
 <resources>
-    <string name="app_name">BookSale</string>
+    <string name="app_name">Testing</string>
+    <string name="txtOrderHistory">View Order Detail</string>
+    <string name="txtBookName">Book Name</string>
+    <string name="txtOrderDetail">Deliver to Profile Address</string>
+    <string name="btnEdit">Edit</string>
+    <string name="imgDesc">anImage</string>
+    <string name="txtDelivery">Order Options</string>
+    <string name="txtOrderDetailEdit">Edit Order Detail</string>
+    <string name="txtAddrLine1">Address Line 1</string>
+    <string name="txtAddrLine2">Address Line 2 (Optional)</string>
+    <string name="txtPostCode">Postal Code</string>
+    <string name="txtBookInitial">Book Name</string>
+    <string name="txtSellerInitial">SELLER</string>
+    <string name="tvPriceInitial">PRICE</string>
+    <string name="tvDetailInitial">Details</string>
+    <string name="tvDetailPlaceHolder">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</string>
+    <string name="rdBtnPickup">Pick Up</string>
+    <string name="rdbtnProfileAddr">Deliver to Profile Address</string>
+    <string name="rdbtnCustomAddr">Deliver To:</string>
+    <string name="btnConfirm">Confirm</string>
+    <string name="txtSellShareOrder">Sell/ Share a book</string>
+    <string name="rdbtnSell">Sell</string>
+    <string name="rdbtnShare">Share</string>
+    <string name="txtHintName">Enter Name</string>
+    <string name="tvName">Name</string>
+    <string name="txtPrice">Enter Price</string>
+    <string name="txtDetailDesc">Details</string>
 </resources>

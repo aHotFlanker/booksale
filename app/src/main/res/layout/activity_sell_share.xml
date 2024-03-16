@@ -4,6 +4,122 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SellShareActivity">
+    android:background="#1EBCBC"
+    android:focusable="auto"
+    tools:context=".SellShare">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/txtSellShareOrder"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="292dp"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.296"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.031">
+
+        <RadioButton
+            android:id="@+id/rdbtnSell"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/rdbtnSell"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/rdbtnShare"
+            android:layout_width="176dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="true"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/rdbtnShare"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/edTxtName"
+        android:layout_width="340dp"
+        android:layout_height="53dp"
+        android:background="@drawable/ed_txt_bg"
+        android:ems="10"
+        android:fontFamily="@font/montserrat_light"
+        android:hint="@string/txtHintName"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2"
+        app:layout_constraintVertical_bias="0.057" />
+
+    <EditText
+        android:id="@+id/edTxtPrice"
+        android:layout_width="340dp"
+        android:layout_height="53dp"
+        android:background="@drawable/ed_txt_bg"
+        android:ems="10"
+        android:fontFamily="@font/montserrat_light"
+        android:hint="@string/txtPrice"
+        android:inputType="numberDecimal"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edTxtName"
+        app:layout_constraintVertical_bias="0.068" />
+
+    <EditText
+        android:id="@+id/edTxtDetail"
+        android:layout_width="344dp"
+        android:layout_height="168dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ed_txt_bg"
+        android:ems="10"
+        android:fontFamily="@font/montserrat_light"
+        android:hint="@string/txtDetailDesc"
+        android:inputType="text"
+        android:lines="20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edTxtPrice"
+        app:layout_constraintVertical_bias="0.071"
+        tools:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/btnConfirmSellShare"
+        android:layout_width="126dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#BFD11B"
+        android:fontFamily="@font/montserrat_light"
+        android:text="@string/btnConfirm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.873"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edTxtDetail"
+        app:layout_constraintVertical_bias="0.495" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

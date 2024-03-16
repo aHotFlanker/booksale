@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/img"
+        android:contentDescription="@string/imgDesc"/>
+
+    <TextView
+        android:id="@+id/book"
+        android:layout_width="291dp"
+        android:layout_height="101dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center|left"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+</LinearLayout>
