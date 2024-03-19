@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">BookSale</string>
+    <string name="buyBook">Image for buy option</string>
+    <string name="sellShareBook">Image for sell and share book</string>
+    <string name="imgViewOrderDetail">Image for viewing order details</string>
+    <string name="imgViewOrderStatus">Image for viewing order status</string>
+    <string name="imgViewOrderHistory">Image for viewing order history</string>
+    <string name="imgEditProfile">Image for editing user profile</string>
+    <string name="btnLogOut">Logout</string>
+    <string name="txtViewOrderStatus" >View Order Status</string>
+    <string name="ImageViewforListView">ImageView for ListView</string>
+    <string name="txtViewOrderDetails">View Order Details\n</string>
 </resources>
