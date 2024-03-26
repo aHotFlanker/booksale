@@ -4,15 +4,123 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1EBCBC"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:id="@+id/tvBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/background_pic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgBuyBook"
+        android:layout_width="120sp"
+        android:layout_height="120sp"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="9dp"
+        android:contentDescription="@string/buyBook"
+        app:layout_constraintBottom_toTopOf="@+id/imgViewOrderDetail"
+        app:layout_constraintEnd_toStartOf="@+id/imgSellShareBook"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_buy" />
+
+    <ImageView
+        android:id="@+id/imgSellShareBook"
+        android:layout_width="120sp"
+        android:layout_height="120sp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginBottom="9dp"
+        android:contentDescription="@string/sellShareBook"
+        app:layout_constraintBottom_toTopOf="@+id/imgViewOrderStatus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgBuyBook"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_sell" />
+
+    <ImageView
+        android:id="@+id/imgViewOrderDetail"
+        android:layout_width="120sp"
+        android:layout_height="120sp"
+        android:layout_marginStart="59dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="13dp"
+        android:contentDescription="@string/imgViewOrderDetail"
+        app:layout_constraintBottom_toTopOf="@+id/imgViewOrderHistory"
+        app:layout_constraintEnd_toStartOf="@+id/imgViewOrderStatus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBuyBook"
+        app:srcCompat="@drawable/ivon_vieworder" />
+
+    <ImageView
+        android:id="@+id/imgViewOrderStatus"
+        android:layout_width="120sp"
+        android:layout_height="120sp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginBottom="13dp"
+        android:contentDescription="@string/imgViewOrderStatus"
+        app:layout_constraintBottom_toTopOf="@+id/imgEditProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgViewOrderDetail"
+        app:layout_constraintTop_toBottomOf="@+id/imgSellShareBook"
+        app:srcCompat="@drawable/icon_viewstatus" />
+
+    <ImageView
+        android:id="@+id/imgViewOrderHistory"
+        android:layout_width="120sp"
+        android:layout_height="120sp"
+        android:layout_marginStart="59dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="137dp"
+        android:contentDescription="@string/imgViewOrderHistory"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imgEditProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgViewOrderDetail"
+        app:srcCompat="@drawable/icon_viewhistory" />
+
+    <ImageView
+        android:id="@+id/imgEditProfile"
+        android:layout_width="120sp"
+        android:layout_height="120sp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginBottom="37dp"
+        android:contentDescription="@string/imgEditProfile"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogOut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgViewOrderHistory"
+        app:layout_constraintTop_toBottomOf="@+id/imgViewOrderStatus"
+        app:srcCompat="@drawable/icon_profile" />
+
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="113dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="52dp"
+        android:backgroundTint="#BFD11B"
+        android:text="@string/btnLogOut"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="TextContrastCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
