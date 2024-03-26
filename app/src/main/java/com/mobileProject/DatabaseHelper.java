@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.io.Console;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
     final  static String DB_NAME = "BOOK.db";
     final static int DATABASE_VERSION = 2;
@@ -113,7 +115,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public String getPassword(String email){
         SQLiteDatabase db = this.getReadableDatabase();
-        String password = null;
+        String password = "";
         String query = "SELECT " + T2COL3 + " FROM " + TABLE2_NAME + " WHERE " + T2COL2 + " = ?";
         Cursor cursor = db.rawQuery(query, new String[]{email});
         if(cursor.moveToFirst()){
@@ -135,11 +137,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query, new String[]{email});
         if(cursor.moveToFirst()){
             try {
-                int passwordIndex = cursor.getColumnIndexOrThrow(T2COL3);
-                userId = cursor.getString(passwordIndex);
+                int IdIndex = cursor.getColumnIndexOrThrow(T2COL1);
+                userId = cursor.getString(IdIndex);
             } catch (IllegalArgumentException e) {
                 // Handle the case where the column does not exist
+                System.out.println("Could not retrieve id, something went wrong");
                 e.printStackTrace();
+
             }
         }
         cursor.close();

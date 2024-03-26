@@ -39,25 +39,30 @@ public class LoginActivity extends AppCompatActivity {
         EditText edt_password = findViewById(R.id.edt_password);
         DatabaseHelper db = new DatabaseHelper(this);
 
-
+        // dummy login  email : test@test.com
+        // dummy login password :
 
 
         btnLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+
                 String email = edt_login_email.getText().toString();
-               String password = db.getPassword(email);
-               String hashedPassword = hashPassword(edt_password.getText().toString());
+                String password = db.getPassword(email);
+                String userId = db.getUserId(email);
+                Toast.makeText(LoginActivity.this, userId, Toast.LENGTH_SHORT).show();
+                String hashedPassword = hashPassword(edt_password.getText().toString());
                if(password.equals(hashedPassword)){
                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("userId", db.getUserId(email));
-                    editor.putString("email",email);
-                    editor.apply();
+                   editor.putString("userId",userId);
+                   editor.putString("email",email);
+                   editor.apply();
                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
                }
                else {
-                   Toast.makeText(LoginActivity.this, "Incorrect Password " + hashedPassword +" " + password, Toast.LENGTH_LONG).show();
+                   Toast.makeText(LoginActivity.this, "Incorrect Password ", Toast.LENGTH_LONG).show();
                }
+
             }
 
         });
