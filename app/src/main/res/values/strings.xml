@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">BookSale</string>
     <string name="buyBook">Image for buy option</string>
     <string name="sellShareBook">Image for sell and share book</string>
@@ -10,4 +11,52 @@
     <string name="txtViewOrderStatus" >View Order Status</string>
     <string name="ImageViewforListView">ImageView for ListView</string>
     <string name="txtViewOrderDetails">View Order Details\n</string>
+
+    <string name="app_name">Testing</string>
+    <string name="txtOrderHistory">View Order Detail</string>
+    <string name="txtBookName">Book Name</string>
+    <string name="txtOrderDetail">Deliver to Profile Address</string>
+    <string name="btnEdit">Edit</string>
+    <string name="imgDesc">anImage</string>
+    <string name="txtDelivery">Order Options</string>
+    <string name="txtOrderDetailEdit">Edit Order Detail</string>
+    <string name="txtAddrLine1">Address Line 1</string>
+    <string name="txtAddrLine2">Address Line 2 (Optional)</string>
+    <string name="txtPostCode">Postal Code</string>
+    <string name="txtBookInitial">Book Name</string>
+    <string name="txtSellerInitial">SELLER</string>
+    <string name="tvPriceInitial">PRICE</string>
+    <string name="tvDetailInitial">Details</string>
+    <string name="tvDetailPlaceHolder">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</string>
+    <string name="rdBtnPickup">Pick Up</string>
+    <string name="rdbtnProfileAddr">Deliver to Profile Address</string>
+    <string name="rdbtnCustomAddr">Deliver To:</string>
+    <string name="btnConfirm">Confirm</string>
+    <string name="txtSellShareOrder">Sell/ Share a book</string>
+    <string name="rdbtnSell">Sell</string>
+    <string name="rdbtnShare">Share</string>
+    <string name="txtHintName">Enter Name</string>
+    <string name="tvName">Name</string>
+    <string name="txtPrice">Enter Price</string>
+    <string name="txtDetailDesc">Details</string>
+    <string name="userName">User Name</string>
+    <string name="Password">Password</string>
+    <string name="WelcomeTxt">Welcome</string>
+    <string name="LoginBtnText">Login</string>
+    <string name="SignupBtnText">Sign up</string>
+    <string name="FirstName">First Name</string>
+    <string name="LastName">Last Name</string>
+    <string name="Address">Address</string>
+    <string name="CellPhone">Cell Phone</string>
+    <string name="Email">Email</string>
+    <string name="Register">Register</string>
+    <string name="Cancel">Cancel</string>
+    <string name="txtSearchBook">Search a book</string>
+    <string name="txtSearchbyName">  Enter a name to search...</string>
+    <string name="btnSearch">Search</string>
+    <string name="tvBuyBookTitle">Buy a book</string>
+    <string name="imgTxt">img</string>
+    <string name="tvSelectBook">Select a book to order...</string>
+    <string name="repeat_password">Repeat Password</string>
+
 </resources>

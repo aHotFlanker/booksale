@@ -4,6 +4,216 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BuyBookActivity">
+    android:background="#1EBCBC">
+
+    <TextView
+        android:id="@+id/tvBuyBookTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/tvBuyBookTitle"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.052" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="166dp"
+        android:layout_height="161dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.154"
+        app:srcCompat="@drawable/book" />
+
+    <TextView
+        android:id="@+id/txtWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/txtBookInitial"
+        android:textColor="#FDFDFD"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.744"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.12" />
+
+    <TextView
+        android:id="@+id/tvSeller"
+        android:layout_width="81dp"
+        android:layout_height="28dp"
+        android:fontFamily="@font/montserrat_light"
+        android:gravity="center|left"
+        android:text="@string/txtSellerInitial"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.663"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.171" />
+
+    <EditText
+        android:id="@+id/editTextText5"
+        android:layout_width="336dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ed_txt_bg"
+        android:ems="10"
+        android:fontFamily="@font/montserrat_light"
+        android:hint="@string/txtAddrLine2"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.596"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.753" />
+
+    <EditText
+        android:id="@+id/editTextText4"
+        android:layout_width="336dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ed_txt_bg"
+        android:ems="10"
+        android:fontFamily="@font/montserrat_light"
+        android:hint="@string/txtAddrLine1"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.596"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.654" />
+
+    <EditText
+        android:id="@+id/editTextText6"
+        android:layout_width="336dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ed_txt_bg"
+        android:ems="10"
+        android:fontFamily="@font/montserrat_light"
+        android:hint="@string/txtPostCode"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.596"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.848" />
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="65dp"
+        android:layout_height="28dp"
+        android:fontFamily="@font/montserrat_light"
+        android:text="@string/tvPriceInitial"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.63"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.215" />
+
+    <TextView
+        android:id="@+id/tvDetails"
+        android:layout_width="64dp"
+        android:layout_height="26dp"
+        android:fontFamily="@font/montserrat_light"
+        android:text="@string/tvDetailInitial"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.631"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.257" />
+
+    <TextView
+        android:id="@+id/tvFullDetails"
+        android:layout_width="146dp"
+        android:layout_height="52dp"
+        android:fontFamily="@font/montserrat_light"
+        android:text="@string/tvDetailPlaceHolder"
+        android:textColor="#FDFBFB"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.822"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.309" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="342dp"
+        android:layout_height="151dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.486">
+
+        <RadioButton
+            android:id="@+id/rdBtnPickup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@android:drawable/radiobutton_on_background"
+            android:checked="true"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/rdBtnPickup"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            tools:buttonTint="#2196F3" />
+
+        <RadioButton
+            android:id="@+id/rdbtnProfileAddr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@android:drawable/radiobutton_on_background"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/rdbtnProfileAddr"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            tools:buttonTint="#FFFFFF" />
+
+        <RadioButton
+            android:id="@+id/rdbtnCustomAddr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@android:drawable/radiobutton_on_background"
+            android:buttonTint="#FFFFFF"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/rdbtnCustomAddr"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            tools:buttonTint="#FFFFFF" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="137dp"
+        android:layout_height="56dp"
+        android:backgroundTint="#BFD11B"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/btnConfirm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
