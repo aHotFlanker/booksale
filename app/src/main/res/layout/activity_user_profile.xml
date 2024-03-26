@@ -23,7 +23,7 @@
         tools:ignore="Autofill" />
 
     <EditText
-        android:id="@+id/edt_phone"
+        android:id="@+id/edt_password"
         android:layout_width="236dp"
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
@@ -34,7 +34,7 @@
         android:gravity="center"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_address"
+        app:layout_constraintTop_toBottomOf="@+id/edt_login_email"
         tools:ignore="Autofill" />
 
     <TextView
@@ -74,7 +74,7 @@
         android:gravity="center"
         android:text="@string/CellPhone"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/edt_phone"
+        app:layout_constraintEnd_toStartOf="@+id/edt_password"
         app:layout_constraintTop_toBottomOf="@+id/lbl_address" />
 
     <EditText
@@ -89,7 +89,7 @@
         android:gravity="center"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_phone"
+        app:layout_constraintTop_toBottomOf="@+id/edt_password"
         tools:ignore="Autofill" />
 
     <TextView
@@ -102,11 +102,11 @@
         android:gravity="center"
         android:text="@string/Address"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/edt_address"
+        app:layout_constraintEnd_toStartOf="@+id/edt_login_email"
         app:layout_constraintTop_toBottomOf="@+id/lbl_lastName" />
 
     <EditText
-        android:id="@+id/edt_address"
+        android:id="@+id/edt_login_email"
         android:layout_width="236dp"
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
@@ -150,12 +150,12 @@
         tools:layout_editor_absoluteY="28dp" />
 
     <Button
-        android:id="@+id/btn_apply"
+        android:id="@+id/btn_register"
         android:layout_width="137dp"
         android:layout_height="56dp"
         android:backgroundTint="#BFD11B"
         android:fontFamily="@font/montserrat_medium"
-        android:text="@string/Apply"
+        android:text="@string/Register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.135"

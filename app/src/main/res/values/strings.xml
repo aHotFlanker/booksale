@@ -36,7 +36,7 @@
     <string name="Address">Address</string>
     <string name="CellPhone">Cell Phone</string>
     <string name="Email">Email</string>
-    <string name="Apply">Apply</string>
+    <string name="Register">Register</string>
     <string name="Cancel">Cancel</string>
     <string name="txtSearchBook">Search a book</string>
     <string name="txtSearchbyName">  Enter a name to search...</string>
@@ -44,4 +44,5 @@
     <string name="tvBuyBookTitle">Buy a book</string>
     <string name="imgTxt">img</string>
     <string name="tvSelectBook">Select a book to order...</string>
+    <string name="repeat_password">Repeat Password</string>
 </resources>

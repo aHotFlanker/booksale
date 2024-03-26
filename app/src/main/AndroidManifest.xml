@@ -18,6 +18,8 @@
         <activity
             android:name=".ViewOrdersHistoryActivity"
             android:exported="false" />
+        <activity android:name=".RegisterActivity"
+            android:exported="false" />
         <activity
             android:name=".EditOrderActivity"
             android:exported="false" />

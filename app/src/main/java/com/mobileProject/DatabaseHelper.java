@@ -6,11 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
-
-public class db extends SQLiteOpenHelper {
+public class DatabaseHelper extends SQLiteOpenHelper {
     final  static String DB_NAME = "BOOK.db";
-    final static int DATABASE_VERSION = 1;
+    final static int DATABASE_VERSION = 2;
     final static String TABLE1_NAME = "UserTable";
     final static String TABLE2_NAME = "UserAuthTable";
     final static String TABLE3_NAME = "BookTable";
@@ -55,7 +53,7 @@ public class db extends SQLiteOpenHelper {
 
 
 
-    public db(Context context) {
+    public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DATABASE_VERSION);
         SQLiteDatabase database = this.getWritableDatabase();
     }
@@ -130,9 +128,26 @@ public class db extends SQLiteOpenHelper {
         cursor.close();
         return password;
     }
+    public String getUserId(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String userId = null;
+        String query = "SELECT " + T2COL1 + " FROM " + TABLE2_NAME + " WHERE " + T2COL2 + " = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{email});
+        if(cursor.moveToFirst()){
+            try {
+                int passwordIndex = cursor.getColumnIndexOrThrow(T2COL3);
+                userId = cursor.getString(passwordIndex);
+            } catch (IllegalArgumentException e) {
+                // Handle the case where the column does not exist
+                e.printStackTrace();
+            }
+        }
+        cursor.close();
+        return userId;
+    }
 
 
-    public boolean CreateUser(String Email, String FName, String LName, String PNumber, String Address){
+    public boolean CreateUser(String Email, String FName, String LName, String PNumber, String Address, String password){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(T1COL2, FName);
@@ -142,10 +157,16 @@ public class db extends SQLiteOpenHelper {
         values.put(T1COL6, Address);
 
         long result = db.insert(TABLE1_NAME, null, values);
+
+        ContentValues authValues = new ContentValues();
+        authValues.put(T2COL2, Email);
+        authValues.put(T2COL3, password);
+        long result2 = db.insert(TABLE2_NAME, null, authValues);
+
         db.close();
 
         // Check if the insertion was successful
-        return result > 0;
+        return result > 0 && result2 > 0;
     }
 
 
