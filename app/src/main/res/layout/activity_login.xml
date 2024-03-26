@@ -22,14 +22,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edt_address"
+        android:id="@+id/edt_login_email"
         android:layout_width="336dp"
         android:layout_height="50dp"
         android:background="@drawable/ed_txt_bg"
         android:ems="10"
         android:fontFamily="@font/montserrat_light"
         android:gravity="center"
-        android:hint="@string/userName"
+        android:hint="@string/Email"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +40,7 @@
         tools:ignore="Autofill" />
 
     <EditText
-        android:id="@+id/edt_phone"
+        android:id="@+id/edt_password"
         android:layout_width="336dp"
         android:layout_height="50dp"
         android:background="@drawable/ed_txt_bg"
@@ -58,7 +58,7 @@
         tools:ignore="Autofill" />
 
     <Button
-        android:id="@+id/btn_Apply"
+        android:id="@+id/btn_SignUp"
         android:layout_width="137dp"
         android:layout_height="56dp"
         android:backgroundTint="#BFD11B"
