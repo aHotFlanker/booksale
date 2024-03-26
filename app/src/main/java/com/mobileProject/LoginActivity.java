@@ -23,8 +23,14 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPref",
+                MODE_PRIVATE);
 
-
+        if (sharedPreferences.contains("userId")) {
+            // If "userId" is found, directly start MainActivity
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            finish(); // Finish LoginActivity to prevent going back to it when pressing back button
+        }
 
 
         Button btnLogin = findViewById(R.id.btnLogin);
@@ -32,8 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         EditText edt_login_email = findViewById(R.id.edt_login_email);
         EditText edt_password = findViewById(R.id.edt_password);
         DatabaseHelper db = new DatabaseHelper(this);
-        SharedPreferences sharedPreferences = getSharedPreferences("MyPref",
-                MODE_PRIVATE);
+
 
 
 
