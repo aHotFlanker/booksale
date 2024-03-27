@@ -5,12 +5,15 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.io.Console;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     final  static String DB_NAME = "BOOK.db";
-    final static int DATABASE_VERSION = 2;
+    final static int DATABASE_VERSION = 3;
     final static String TABLE1_NAME = "UserTable";
     final static String TABLE2_NAME = "UserAuthTable";
     final static String TABLE3_NAME = "BookTable";
@@ -51,7 +54,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final static String T5COL4 = "Intent";
     final static String T5COL5 = "ListingDate";
     final static String T5COL6 = "SellerId";
-
+    final static String T5COL7 = "Price";
+    final static String T5COL8 = "IsOrdered";
 
 
 
@@ -98,7 +102,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + T5COL3 + " TEXT,"
                 + T5COL4 + " TEXT,"
                 + T5COL5 + " TEXT,"
-                + T5COL6 + " INTEGER)";
+                + T5COL6 + " INTEGER,"
+                + T5COL7 + " INTEGER,"
+                + T5COL8 + " TEXT)";
         db.execSQL(query);
 
     }
@@ -128,6 +134,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         cursor.close();
+        db.close();
         return password;
     }
     public String getUserId(String email){
@@ -147,6 +154,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         cursor.close();
+        db.close();
         return userId;
     }
 
@@ -172,6 +180,126 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Check if the insertion was successful
         return result > 0 && result2 > 0;
     }
+
+    public boolean EditUser(int userId, String FName, String LName, String PNumber, String Address){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T1COL2, FName);
+        values.put(T1COL3, LName);
+        values.put(T1COL5, PNumber);
+        values.put(T1COL6, Address);
+
+        // Update the user information based on userId
+        int result = db.update(TABLE1_NAME, values, T1COL1 + " = ?", new String[]{String.valueOf(userId)});
+
+        db.close();
+
+        // Check if the update was successful
+        return result > 0;
+    }
+
+    public UserDetails GetUserDetails(String userId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        UserDetails userDetails = null;
+
+        try {
+            // Define the columns to be retrieved
+            String[] columns = {T1COL4, T1COL2, T1COL3, T1COL5, T1COL6};
+
+            // Query the user information based on userId
+            Cursor cursor = db.query(TABLE1_NAME, columns, T1COL1 + " = ?", new String[]{userId}, null, null, null);
+
+            if (cursor.moveToFirst()) {
+                // Retrieve user details from the cursor
+                String email = cursor.getString(cursor.getColumnIndexOrThrow(T1COL4));
+                String firstName = cursor.getString(cursor.getColumnIndexOrThrow(T1COL2));
+                String lastName = cursor.getString(cursor.getColumnIndexOrThrow(T1COL3));
+                String phoneNumber = cursor.getString(cursor.getColumnIndexOrThrow(T1COL5));
+                String address = cursor.getString(cursor.getColumnIndexOrThrow(T1COL6));
+
+                // Create a UserDetails object
+                userDetails = new UserDetails(email, firstName, lastName, phoneNumber, address);
+            }
+
+            cursor.close();
+        } catch (Exception e) {
+            // Handle any exceptions that occur during the query
+            Log.e("GetUserDetails", "Error retrieving user details: " + e.getMessage());
+        } finally {
+            db.close();
+        }
+
+        return userDetails;
+    }
+    public boolean UpdateUserDetails(String userId, String firstName, String lastName, String phoneNumber, String address) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        boolean success = false;
+
+        try {
+            ContentValues values = new ContentValues();
+            values.put(T1COL2, firstName);
+            values.put(T1COL3, lastName);
+            values.put(T1COL5, phoneNumber);
+            values.put(T1COL6, address);
+
+            // Update the user details based on userId
+            int rowsAffected = db.update(TABLE1_NAME, values, T1COL1 + " = ?", new String[]{userId});
+
+            // Check if the update was successful
+            success = rowsAffected > 0;
+        } catch (Exception e) {
+            Log.e("DatabaseHelper", "Error updating user details: " + e.getMessage());
+        } finally {
+            db.close();
+        }
+
+        return success;
+    }
+    public List<OrderHistory> getOrderHistory(String userId) {
+        List<OrderHistory> orderHistoryList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        try {
+            // Join the necessary tables to retrieve the required information
+            String query = "SELECT " +
+                    "lt." + T5COL5 + " AS ListingDate, " +
+                    "lt." + T5COL7 + " AS Price, " +
+                    "CASE " +
+                    "WHEN ot." + T4COL3 + " = ? THEN 'Bought' " +
+                    "WHEN lt." + T5COL6 + " = ? THEN 'Sold' " +
+                    "ELSE 'Unknown' " +
+                    "END AS Status, " +
+                    "bt." + T3COL2 + " AS BookName " +
+                    "FROM " + TABLE4_NAME + " ot " +
+                    "JOIN " + TABLE5_NAME + " lt ON ot." + T4COL2 + " = lt." + T5COL1 + " " +
+                    "JOIN " + TABLE3_NAME + " bt ON lt." + T5COL2 + " = bt." + T3COL1 + " " +
+                    "WHERE (ot." + T4COL3 + " = ? OR lt." + T5COL6 + " = ?) " +
+                    "AND ot." + T4COL5 + " = 'true'";
+
+            Cursor cursor = db.rawQuery(query, new String[]{userId, userId, userId, userId});
+            if (cursor.moveToFirst()) {
+                do {
+                    String listingDate = cursor.getString(cursor.getColumnIndexOrThrow("ListingDate"));
+                    double price = cursor.getDouble(cursor.getColumnIndexOrThrow("Price"));
+                    String status = cursor.getString(cursor.getColumnIndexOrThrow("Status"));
+                    String bookName = cursor.getString(cursor.getColumnIndexOrThrow("BookName"));
+
+                    // Create an OrderHistory object and add it to the list
+                    OrderHistory orderHistory = new OrderHistory(listingDate, price, status, bookName);
+                    orderHistoryList.add(orderHistory);
+                } while (cursor.moveToNext());
+            }
+
+            cursor.close();
+        } catch (Exception e) {
+            Log.e("DatabaseHelper", "Error retrieving order history: " + e.getMessage());
+        } finally {
+            db.close();
+        }
+
+        return orderHistoryList;
+    }
+
 
 
 }
