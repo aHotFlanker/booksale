@@ -300,7 +300,69 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return orderHistoryList;
     }
 
+    public Cursor listListingItems(String searchBy) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        /*
+        ContentValues values4 = new ContentValues();
+        values4.put(T3COL1, 3); //BookID
+        values4.put(T3COL2, "Crazy BookA"); //Name
+        values4.put(T3COL3, "Daniel"); //writer
+        values4.put(T3COL4, "Adventure"); //genre
+        long l4 =  db.insert(TABLE3_NAME,null, values4);
+        ContentValues values = new ContentValues();
+        values.put(T5COL2, 3); //BookID
+        values.put(T5COL3, "100% NEW!"); //Description
+        values.put(T5COL4, "sell"); //Intent
+        values.put(T5COL5, "3/28/2024"); //ListingDate
+        values.put(T5COL6, 1); //sellerID
+        values.put(T5COL7, 99.1); //Price
+        values.put(T5COL8, false); //isOrdered
+        long l =  db.insert(TABLE5_NAME,null, values);*/
+        /*
+        ContentValues values2 = new ContentValues();
+        values2.put(T5COL2, 2); //BookID
+        values2.put(T5COL3, "test1"); //Description
+        values2.put(T5COL4, "sell"); //Intent
+        values2.put(T5COL5, "3/28/2024"); //ListingDate
+        values2.put(T5COL6, 1); //sellerID
+        values2.put(T5COL7, 10.1); //Price
+        values2.put(T5COL8, false); //isOrdered
+        long l2 =  db.insert(TABLE5_NAME,null, values2);
+        ContentValues values3 = new ContentValues();
+        values3.put(T3COL1, 1); //BookID
+        values3.put(T3COL2, "Harry"); //Name
+        values3.put(T3COL3, "WriterA"); //writer
+        values3.put(T3COL4, "GenreA"); //genre
+        long l3 =  db.insert(TABLE3_NAME,null, values3);
+        ContentValues values4 = new ContentValues();
+        values4.put(T3COL1, 2); //BookID
+        values4.put(T3COL2, "Potter"); //Name
+        values4.put(T3COL3, "WriterB"); //writer
+        values4.put(T3COL4, "GenreB"); //genre
+        long l4 =  db.insert(TABLE3_NAME,null, values4);
+*/
+        String query;
+        if( searchBy.equals("")) {
+            query = "SELECT BNAME, fName, PRICE, DESCRIPTION, listingId, sellerID  FROM "
+                    + TABLE5_NAME
+                    + " INNER JOIN " + TABLE3_NAME
+                    + " ON " + TABLE5_NAME + ".BookId = " + TABLE3_NAME + ".BookId"
+                    + " INNER JOIN " + TABLE1_NAME
+                    + " ON " + TABLE5_NAME + ".SellerID = " + TABLE1_NAME + ".UserId";
+        }else{
+            query = "SELECT BNAME, fName, PRICE, DESCRIPTION, listingId, sellerID  FROM "
+                    + TABLE5_NAME
+                    + " INNER JOIN " + TABLE3_NAME
+                    + " ON " + TABLE5_NAME + ".BookId = " + TABLE3_NAME + ".BookId"
+                    + " INNER JOIN " + TABLE1_NAME
+                    + " ON " + TABLE5_NAME + ".SellerID = " + TABLE1_NAME + ".UserId"
+                    + " WHERE BNAME = '" + searchBy +"'";
 
+        }
+        Cursor c = db.rawQuery(query, null);
+        return c;
+
+    }
 
 }
 
