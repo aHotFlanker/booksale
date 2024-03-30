@@ -364,5 +364,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    public boolean insertOrderRecord(int listingID, int buyerID, String deliveryOption, boolean completed, String deliveryStatus) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T4COL2, listingID); //Listing ID
+        values.put(T4COL3, buyerID); //Buyer ID
+        values.put(T4COL4, deliveryOption); //DeliveryOption
+        values.put(T4COL5, false); //Completed
+        values.put(T4COL6, deliveryStatus); //DeliveryStatus
+        long l =  sqLiteDatabase.insert(TABLE4_NAME,null, values);
+        if (l > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public String getUserAddress(int userID){
+        String userAddress = null;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT " + T1COL6 + " FROM " + TABLE1_NAME + " WHERE " + T1COL1 + " = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(userID)});
+        if(cursor.moveToFirst()){
+            userAddress= cursor.getString(0);
+        }
+        cursor.close();
+        db.close();
+        return userAddress;
+    }
+
 }
 
