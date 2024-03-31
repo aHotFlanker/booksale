@@ -25,6 +25,39 @@ public class MainActivity extends AppCompatActivity {
         ImageView viewOrderHistory = findViewById(R.id.imgViewOrderHistory);
         ImageView editProfile = findViewById(R.id.imgEditProfile);
         Button btnLogout = findViewById(R.id.btnLogOut);
+<<<<<<< Updated upstream
+=======
+        SharedPreferences sharedPreferences = getApplicationContext().
+                getSharedPreferences("MyPref", MODE_PRIVATE);
+
+        String logedInUserId = sharedPreferences.getString("userId", "");
+        DatabaseHelper databaseHelper = new DatabaseHelper(this);
+
+        userName.setText("Welcome, " + logedInUserId);
+       
+        //String userName1 = (databaseHelper.userName(logedInUserId)).getString(0);
+        
+        //userName.setText(userName1);
+
+        try {
+            Cursor cursorBuyerId = databaseHelper.getBuyerId();
+            int a = 0;
+            while (cursorBuyerId.moveToNext()) {
+
+                if (cursorBuyerId.getString(2).equals(logedInUserId)) {
+                    String getBookName1 = (databaseHelper.getBookinfo1(logedInUserId).getString(a).toString());
+                    a++;
+                    if (cursorBuyerId.getString(5).equals("Ready for pickup") || cursorBuyerId.getString(5).equals("Shipped")) {
+                        remainder.setText("Check the orders");
+                    }
+                }
+            }
+
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "No content to show for buying", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+>>>>>>> Stashed changes
 
         // userName= (get username from database or login screen) and set text
 
