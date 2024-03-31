@@ -12,7 +12,7 @@
     <string name="ImageViewforListView">ImageView for ListView</string>
     <string name="txtViewOrderDetails">View Order Details\n</string>
 
-    <string name="app_name">Testing</string>
+
     <string name="txtOrderHistory">View Order Detail</string>
     <string name="txtBookName">Book Name</string>
     <string name="txtOrderDetail">Deliver to Profile Address</string>
