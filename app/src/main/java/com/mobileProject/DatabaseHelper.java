@@ -12,13 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-<<<<<<< Updated upstream
+
     final  static String DB_NAME = "BOOK.db";
     final static int DATABASE_VERSION = 3;
-=======
-    final static String DB_NAME = "BOOK.db";
-    final static int DATABASE_VERSION = 2;
->>>>>>> Stashed changes
+
+
+
     final static String TABLE1_NAME = "UserTable";
     final static String TABLE2_NAME = "UserAuthTable";
     final static String TABLE3_NAME = "BookTable";
@@ -185,7 +184,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result > 0 && result2 > 0;
     }
 
-<<<<<<< Updated upstream
+
     public boolean EditUser(int userId, String FName, String LName, String PNumber, String Address){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -396,7 +395,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return userAddress;
     }
-=======
+
     public Cursor getSellerId() {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         String query = "SELECT SellerId, Intent, ListingDate FROM" + TABLE5_NAME;
@@ -452,15 +451,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return buyerAddress;
     }
 
-    public Cursor userName(String logedInUserId) {
+    public String userName(String logedInUserId) {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        String query = " SELECT FName FROM " + TABLE1_NAME + " WHERE UserId=?";
-        Cursor userName = sqLiteDatabase.rawQuery(query, new String[]{String.valueOf(logedInUserId)});
+        String query = "SELECT FName FROM " + TABLE1_NAME + " WHERE UserId = ?";
+        Cursor cursor = sqLiteDatabase.rawQuery(query, new String[]{logedInUserId});
 
-        return userName;
+        String name = "";
+        if (cursor.moveToFirst()) {
+            name = cursor.getString(0);
+        }
+        cursor.close();
+        return name;
     }
 
->>>>>>> Stashed changes
+
+
 
 }
 

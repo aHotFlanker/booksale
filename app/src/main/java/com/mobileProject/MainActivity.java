@@ -29,25 +29,22 @@ public class MainActivity extends AppCompatActivity {
         ImageView viewOrderHistory = findViewById(R.id.imgViewOrderHistory);
         ImageView editProfile = findViewById(R.id.imgEditProfile);
         Button btnLogout = findViewById(R.id.btnLogOut);
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
+
         SharedPreferences sharedPreferences = getApplicationContext().
                 getSharedPreferences("MyPref", MODE_PRIVATE);
 
         String logedInUserId = sharedPreferences.getString("userId", "");
         DatabaseHelper databaseHelper = new DatabaseHelper(this);
 
-        userName.setText("Welcome, " + logedInUserId);
-       
-        //String userName1 = (databaseHelper.userName(logedInUserId)).getString(0);
-<<<<<<< Updated upstream
-        
-=======
->>>>>>> Stashed changes
-        //userName.setText(userName1);
+        //userName.setText("Welcome, " + logedInUserId);
+        try {
+            String userName1 = databaseHelper.userName(logedInUserId);
+
+            userName.setText("Welcome, " +userName1);
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
 
         try {
             Cursor cursorBuyerId = databaseHelper.getBuyerId();
@@ -64,13 +61,9 @@ public class MainActivity extends AppCompatActivity {
             }
 
         } catch (Exception e) {
-            Toast.makeText(MainActivity.this, "No content to show for buying", Toast.LENGTH_LONG).show();
+
             e.printStackTrace();
         }
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 
         buyBook.setOnClickListener(new View.OnClickListener() {
@@ -119,6 +112,10 @@ public class MainActivity extends AppCompatActivity {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.remove("userId");
+                editor.apply();
+
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         });
