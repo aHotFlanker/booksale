@@ -3,12 +3,15 @@ package com.mobileProject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         TextView userName = findViewById(R.id.tvUserName);
+        TextView remainder = findViewById(R.id.tvRemainder);
         ImageView buyBook = findViewById(R.id.imgBuyBook);
         ImageView sellShareBook = findViewById(R.id.imgSellShareBook);
         ImageView viewOrderDetail = findViewById(R.id.imgViewOrderDetail);
@@ -26,7 +30,10 @@ public class MainActivity extends AppCompatActivity {
         ImageView editProfile = findViewById(R.id.imgEditProfile);
         Button btnLogout = findViewById(R.id.btnLogOut);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
         SharedPreferences sharedPreferences = getApplicationContext().
                 getSharedPreferences("MyPref", MODE_PRIVATE);
 
@@ -36,7 +43,10 @@ public class MainActivity extends AppCompatActivity {
         userName.setText("Welcome, " + logedInUserId);
        
         //String userName1 = (databaseHelper.userName(logedInUserId)).getString(0);
+<<<<<<< Updated upstream
         
+=======
+>>>>>>> Stashed changes
         //userName.setText(userName1);
 
         try {
@@ -57,9 +67,11 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "No content to show for buying", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
-        // userName= (get username from database or login screen) and set text
 
         buyBook.setOnClickListener(new View.OnClickListener() {
             @Override

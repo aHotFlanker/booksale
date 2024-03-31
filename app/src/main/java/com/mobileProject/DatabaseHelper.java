@@ -12,8 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
+<<<<<<< Updated upstream
     final  static String DB_NAME = "BOOK.db";
     final static int DATABASE_VERSION = 3;
+=======
+    final static String DB_NAME = "BOOK.db";
+    final static int DATABASE_VERSION = 2;
+>>>>>>> Stashed changes
     final static String TABLE1_NAME = "UserTable";
     final static String TABLE2_NAME = "UserAuthTable";
     final static String TABLE3_NAME = "BookTable";
@@ -57,8 +62,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final static String T5COL7 = "Price";
     final static String T5COL8 = "IsOrdered";
 
-
-
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DATABASE_VERSION);
         SQLiteDatabase database = this.getWritableDatabase();
@@ -66,7 +69,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query ="CREATE TABLE " + TABLE1_NAME
+        String query = "CREATE TABLE " + TABLE1_NAME
                 + "(" + T1COL1 + " INTEGER PRIMARY KEY,"
                 + T1COL2 + " TEXT, "
                 + T1COL3 + " TEXT,"
@@ -75,20 +78,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + T1COL6 + " TEXT)";
         db.execSQL(query);
 
-        query ="CREATE TABLE " + TABLE2_NAME
+        query = "CREATE TABLE " + TABLE2_NAME
                 + "(" + T2COL1 + " INTEGER PRIMARY KEY,"
                 + T2COL2 + " TEXT, "
                 + T2COL3 + " TEXT)";
         db.execSQL(query);
 
-        query ="CREATE TABLE " + TABLE3_NAME
+        query = "CREATE TABLE " + TABLE3_NAME
                 + "(" + T3COL1 + " INTEGER PRIMARY KEY,"
                 + T3COL2 + " TEXT, "
                 + T3COL3 + " TEXT,"
                 + T3COL4 + " TEXT)";
         db.execSQL(query);
 
-        query ="CREATE TABLE " + TABLE4_NAME
+        query = "CREATE TABLE " + TABLE4_NAME
                 + "(" + T4COL1 + " INTEGER PRIMARY KEY,"
                 + T4COL2 + " INTEGER, "
                 + T4COL3 + " INTEGER,"
@@ -96,7 +99,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + T4COL5 + " TEXT,"
                 + T4COL6 + " TEXT)";
         db.execSQL(query);
-        query ="CREATE TABLE " + TABLE5_NAME
+        query = "CREATE TABLE " + TABLE5_NAME
                 + "(" + T5COL1 + " INTEGER PRIMARY KEY,"
                 + T5COL2 + " INTEGER, "
                 + T5COL3 + " TEXT,"
@@ -119,12 +122,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public String getPassword(String email){
+    public String getPassword(String email) {
         SQLiteDatabase db = this.getReadableDatabase();
         String password = "";
         String query = "SELECT " + T2COL3 + " FROM " + TABLE2_NAME + " WHERE " + T2COL2 + " = ?";
         Cursor cursor = db.rawQuery(query, new String[]{email});
-        if(cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             try {
                 int passwordIndex = cursor.getColumnIndexOrThrow(T2COL3);
                 password = cursor.getString(passwordIndex);
@@ -137,12 +140,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return password;
     }
-    public String getUserId(String email){
+
+    public String getUserId(String email) {
         SQLiteDatabase db = this.getReadableDatabase();
         String userId = null;
         String query = "SELECT " + T2COL1 + " FROM " + TABLE2_NAME + " WHERE " + T2COL2 + " = ?";
         Cursor cursor = db.rawQuery(query, new String[]{email});
-        if(cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             try {
                 int IdIndex = cursor.getColumnIndexOrThrow(T2COL1);
                 userId = cursor.getString(IdIndex);
@@ -159,7 +163,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public boolean CreateUser(String Email, String FName, String LName, String PNumber, String Address, String password){
+    public boolean CreateUser(String Email, String FName, String LName, String PNumber, String Address, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(T1COL2, FName);
@@ -181,6 +185,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result > 0 && result2 > 0;
     }
 
+<<<<<<< Updated upstream
     public boolean EditUser(int userId, String FName, String LName, String PNumber, String Address){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -391,6 +396,71 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return userAddress;
     }
+=======
+    public Cursor getSellerId() {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String query = "SELECT SellerId, Intent, ListingDate FROM" + TABLE5_NAME;
+        Cursor cursorSellerId = sqLiteDatabase.rawQuery(query, new String[]{});
+        return cursorSellerId;
+
+    }
+
+    public Cursor getBookinfo(String logedInUserId) {
+
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String query = " SELECT BName FROM " + "ListingTable inner join BookTable on ListingTable.BookId=BookTable.BookId " +
+                "WHERE ListingTable.SellerId = ?";
+        Cursor cursorBookName = sqLiteDatabase.rawQuery(query, new String[]{String.valueOf(logedInUserId)});
+        return cursorBookName;
+    }
+
+    public Cursor getBuyerId() {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String query = "SELECT * FROM " + TABLE4_NAME;
+        Cursor cursorBuyerId = sqLiteDatabase.rawQuery(query, new String[]{});
+        return cursorBuyerId;
+
+    }
+
+    public Cursor getBookinfo1(String logedInUserId) {
+
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String query = " SELECT BName FROM " +
+                "OrderTable inner join ListingTable on OrderTable.ListingId=OrderTable.ListingId" +
+                "ListingTable inner join BookTable on ListingTable.BookId=BookTable.BookId " +
+                "WHERE OrderTable.BuyerId = ?";
+        Cursor cursorBookName1 = sqLiteDatabase.rawQuery(query, new String[]{String.valueOf(logedInUserId)});
+        return cursorBookName1;
+    }
+
+    public Cursor getSellerAddress(String logedInUserId) {
+
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String query = " SELECT Address FROM " +
+                "OrderTable inner join ListingTable on OrderTable.ListingId=OrderTable.ListingId" +
+                "ListingTable inner join UserTable on ListingTable.SellerId=UserTable.UserId " +
+                "WHERE OrderTable.BuyerId = ?";
+
+        Cursor sellerAddress = sqLiteDatabase.rawQuery(query, new String[]{String.valueOf(logedInUserId)});
+        return sellerAddress;
+    }
+
+    public Cursor buyerAddress(String logedInUserId) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String query = " SELECT Address FROM" + TABLE1_NAME + " WHERE UserId = ?";
+        Cursor buyerAddress = sqLiteDatabase.rawQuery(query, new String[]{String.valueOf(logedInUserId)});
+        return buyerAddress;
+    }
+
+    public Cursor userName(String logedInUserId) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String query = " SELECT FName FROM " + TABLE1_NAME + " WHERE UserId=?";
+        Cursor userName = sqLiteDatabase.rawQuery(query, new String[]{String.valueOf(logedInUserId)});
+
+        return userName;
+    }
+
+>>>>>>> Stashed changes
 
 }
 
