@@ -465,7 +465,59 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public Cursor findBookName(String bookName) {
+        SQLiteDatabase database = getReadableDatabase();
+        String query = "SELECT BookId FROM BookTable WHERE BName = ?";
 
+        Cursor c = database.rawQuery(query, new String[]{bookName});
+        return c;
+
+    }
+
+    public void insertListingRecord (int bookId, String desc, String intent, int seller, double price, String isOrdered) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T5COL2, bookId);
+        values.put(T5COL3, desc);
+        values.put(T5COL4, intent);
+        values.put(T5COL6, seller);
+        values.put(T5COL7, price);
+        values.put(T5COL8, isOrdered);
+
+        db.insert(TABLE5_NAME, null, values);
+    }
+
+    public long insertBookRecord (String bookName, String writer, String genre) {
+        SQLiteDatabase db = getReadableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T3COL2, bookName);
+        values.put(T3COL3, writer);
+        values.put(T3COL4, genre);
+
+        return db.insert(TABLE3_NAME, null, values);
+
+    }
+
+    public Cursor getAddress(int userId) {
+        SQLiteDatabase database = getReadableDatabase();
+        String query = "SELECT Address FROM UserTable WHERE UserId = ?";
+        return database.rawQuery(query, new String[]{Integer.toString(userId)});
+
+    }
+
+    public boolean updateDelivery(String message, int order) {
+        SQLiteDatabase database = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(T4COL4, message);
+
+        int u = database.update(TABLE4_NAME, values, "OrderId=?" , new String[]{Integer.toString(order)});
+        if(u>0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
 

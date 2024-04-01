@@ -35,7 +35,7 @@
         app:srcCompat="@drawable/book" />
 
     <TextView
-        android:id="@+id/txtWelcome"
+        android:id="@+id/tvBookName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_medium"
@@ -44,10 +44,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.755"
+        app:layout_constraintHorizontal_bias="0.741"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.122" />
+        app:layout_constraintVertical_bias="0.125" />
 
     <TextView
         android:id="@+id/tvSeller"
@@ -65,67 +65,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.171" />
 
-    <EditText
-        android:id="@+id/editTextText5"
-        android:layout_width="336dp"
-        android:layout_height="50dp"
-        android:background="@drawable/ed_txt_bg"
-        android:ems="10"
-        android:fontFamily="@font/montserrat_light"
-        android:hint="@string/txtAddrLine2"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.596"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.753" />
-
-    <EditText
-        android:id="@+id/editTextText4"
-        android:layout_width="336dp"
-        android:layout_height="50dp"
-        android:background="@drawable/ed_txt_bg"
-        android:ems="10"
-        android:fontFamily="@font/montserrat_light"
-        android:hint="@string/txtAddrLine1"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.596"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.654" />
-
-    <EditText
-        android:id="@+id/editTextText6"
-        android:layout_width="336dp"
-        android:layout_height="50dp"
-        android:background="@drawable/ed_txt_bg"
-        android:ems="10"
-        android:fontFamily="@font/montserrat_light"
-        android:hint="@string/txtPostCode"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.596"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.848" />
-
     <TextView
         android:id="@+id/tvPrice"
-        android:layout_width="65dp"
-        android:layout_height="28dp"
+        android:layout_width="176dp"
+        android:layout_height="32dp"
         android:fontFamily="@font/montserrat_light"
         android:text="@string/tvPriceInitial"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.63"
+        app:layout_constraintHorizontal_bias="0.931"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.215" />
+        app:layout_constraintVertical_bias="0.213" />
 
     <TextView
         android:id="@+id/tvDetails"
@@ -162,45 +114,45 @@
         android:layout_height="151dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.486">
+        app:layout_constraintVertical_bias="0.6">
 
         <RadioButton
             android:id="@+id/rdBtnPickup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:button="@android:drawable/radiobutton_on_background"
-            android:checked="true"
+            android:checked="false"
             android:fontFamily="@font/montserrat_bold"
             android:text="@string/rdBtnPickup"
             android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            tools:buttonTint="#2196F3" />
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tvSellerAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_light"
+            android:textColor="@color/white" />
 
         <RadioButton
             android:id="@+id/rdbtnProfileAddr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:button="@android:drawable/radiobutton_on_background"
+            android:checked="true"
             android:fontFamily="@font/montserrat_bold"
             android:text="@string/rdbtnProfileAddr"
             android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            tools:buttonTint="#FFFFFF" />
+            android:textSize="15sp" />
 
-        <RadioButton
-            android:id="@+id/rdbtnCustomAddr"
+        <TextView
+            android:id="@+id/tvBuyerAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:button="@android:drawable/radiobutton_on_background"
-            android:buttonTint="#FFFFFF"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="@string/rdbtnCustomAddr"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            tools:buttonTint="#FFFFFF" />
+            android:fontFamily="@font/montserrat_light"
+            android:textColor="@color/white" />
+
     </RadioGroup>
 
     <Button

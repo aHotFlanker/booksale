@@ -23,67 +23,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.046" />
 
-    <TextView
-        android:id="@+id/txtOrderBookName"
-        android:layout_width="178dp"
-        android:layout_height="40dp"
-        android:fontFamily="@font/montserrat_bold"
-        android:text="@string/txtBookName"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.846"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.143" />
-
-    <TextView
-        android:id="@+id/txtOrderBookDetail"
-        android:layout_width="183dp"
-        android:layout_height="61dp"
-        android:fontFamily="@font/montserrat_light"
-        android:gravity="center|left"
-        android:text="@string/txtDelivery"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.861"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.209" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="139dp"
-        android:layout_height="147dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.161"
-        app:srcCompat="@drawable/book" />
-
-    <Button
-        android:id="@+id/btnEdit"
-        android:layout_width="99dp"
-        android:layout_height="48dp"
-        android:backgroundTint="#BFD11B"
-        android:fontFamily="@font/montserrat_bold"
-        android:text="@string/btnEdit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.904"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.294" />
-
     <ListView
         android:id="@+id/listViewItems"
-        android:layout_width="338dp"
-        android:layout_height="443dp"
+        android:layout_width="333dp"
+        android:layout_height="621dp"
         android:dividerHeight="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,38 +35,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#1EBCBC"
-        tools:context=".ViewOrderStatusActivity"/>
-
-    <TextView
-        android:id="@+id/tvViewOrderDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:text="@string/txtViewOrderDetails"
-        android:textColor="#F4F4F4"
-        android:textSize="31sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.236"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TextContrastCheck" />
-
-    <ListView
-        android:id="@+id/listViewBookDetails"
-        android:layout_width="410dp"
-        android:layout_height="507dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvViewOrderDetails"
-        app:layout_constraintVertical_bias="0.276" />
 </androidx.constraintlayout.widget.ConstraintLayout>

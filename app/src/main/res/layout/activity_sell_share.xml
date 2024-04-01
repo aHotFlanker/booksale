@@ -39,6 +39,7 @@
             android:id="@+id/rdbtnSell"
             android:layout_width="128dp"
             android:layout_height="wrap_content"
+            android:buttonTint="#FFFFFF"
             android:checked="true"
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/rdbtnSell"
@@ -50,6 +51,7 @@
             android:layout_width="176dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:buttonTint="#FFFFFF"
             android:enabled="true"
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/rdbtnShare"
@@ -81,7 +83,6 @@
         android:fontFamily="@font/montserrat_light"
         android:hint="@string/txtPrice"
         android:inputType="numberDecimal"
-        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
@@ -91,8 +92,8 @@
 
     <EditText
         android:id="@+id/edTxtDetail"
-        android:layout_width="344dp"
-        android:layout_height="168dp"
+        android:layout_width="341dp"
+        android:layout_height="90dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/ed_txt_bg"
         android:ems="10"
@@ -100,13 +101,13 @@
         android:hint="@string/txtDetailDesc"
         android:inputType="text"
         android:lines="20"
+        android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edTxtPrice"
-        app:layout_constraintVertical_bias="0.071"
-        tools:inputType="textMultiLine" />
+        app:layout_constraintVertical_bias="0.072" />
 
     <Button
         android:id="@+id/btnConfirmSellShare"
