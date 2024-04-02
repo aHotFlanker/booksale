@@ -519,5 +519,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public Cursor viewOrderData(int userId) {
+        SQLiteDatabase database = this.getReadableDatabase();
+        String query = "SELECT U.FName, U.LName, B.BName, L.Price, O.DeliveryOption , L.Description, O.OrderId, L.SellerId, U.UserId " +
+                "FROM " + TABLE4_NAME + " AS O " + "JOIN " + TABLE5_NAME + " AS L " +
+                " ON O.ListingId = L.ListingId " +
+                "JOIN " + TABLE3_NAME + " AS B " +
+                "ON L.BookId = B.BookId " +
+                "JOIN " + TABLE1_NAME + " AS U " +
+                "ON L.SellerId = U.UserId WHERE UserId=?";
+        return database.rawQuery(query, new String[]{Integer.toString(userId)});
+    }
+
 }
 

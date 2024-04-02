@@ -60,5 +60,5 @@
     <string name="tvSelectBook">Select a book to order...</string>
     <string name="repeat_password">Repeat Password</string>
     <string name="Save">Save</string>
-
+    <string name="txtOrderDetailView">View Order Detail</string>
 </resources>
